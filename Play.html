@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED Banner Play</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: monospace;
+    }
+
+    .scroll-text {
+      font-size: 8vw;
+      white-space: nowrap;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-text" id="bannerText"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get("text") || "Welcome!";
+    const bg = params.get("bg") || "black";
+    const color = params.get("color") || "lime";
+
+    document.body.style.backgroundColor = bg;
+    const banner = document.getElementById("bannerText");
+    banner.style.color = color;
+    banner.textContent = decodeURIComponent(text);
+  </script>
+</body>
+</html>
