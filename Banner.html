@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED Banner Setup</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      background: #111;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 6vw;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 1em 0 0.3em;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      font-size: 5vw;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    select {
+      font-size: 4vw;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 20px;
+      font-size: 6vw;
+      background: lime;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>LED Banner</h1>
+  <label for="text">Your Message:</label>
+  <input type="text" id="text" placeholder="e.g. Welcome, Kenneth!" />
+
+  <label for="bg">Background Color:</label>
+  <select id="bg">
+    <option value="black">Black</option>
+    <option value="white">White</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="yellow">Yellow</option>
+    <option value="orange">Orange</option>
+    <option value="purple">Purple</option>
+    <option value="cyan">Cyan</option>
+    <option value="magenta">Magenta</option>
+    <option value="gray">Gray</option>
+    <option value="lime">Lime</option>
+    <option value="navy">Navy</option>
+    <option value="maroon">Maroon</option>
+    <option value="teal">Teal</option>
+  </select>
+
+  <label for="color">Text Color:</label>
+  <select id="color">
+    <option value="white">White</option>
+    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="yellow">Yellow</option>
+    <option value="orange">Orange</option>
+    <option value="purple">Purple</option>
+    <option value="cyan">Cyan</option>
+    <option value="magenta">Magenta</option>
+    <option value="gray">Gray</option>
+    <option value="lime">Lime</option>
+    <option value="navy">Navy</option>
+    <option value="maroon">Maroon</option>
+    <option value="teal">Teal</option>
+  </select>
+
+  <button onclick="startBanner()">Play</button>
+
+  <script>
+    function startBanner() {
+      const text = encodeURIComponent(document.getElementById("text").value);
+      const bg = encodeURIComponent(document.getElementById("bg").value);
+      const color = encodeURIComponent(document.getElementById("color").value);
+      window.location.href = `play.html?text=${text}&bg=${bg}&color=${color}`;
+    }
+  </script>
+</body>
+</html>
