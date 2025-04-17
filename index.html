@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("quick")) {
+      window.location.href = "led-play.html?text=Welcome&bg=black&color=lime";
+    } else {
+      window.location.href = "setup.html";
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting to LED banner...</p>
+</body>
+</html>
