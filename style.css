@@ -7,7 +7,7 @@ html, body {
   background: #ffffff;
   color: #222;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* Setup Page */
