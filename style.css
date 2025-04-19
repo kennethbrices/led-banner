@@ -1,56 +1,164 @@
-body {
+html, body {
   margin: 0;
-  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
-  background: black;
-  color: white;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', 'Noto Sans', sans-serif;
+  background: #ffffff;
+  color: #222;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
+/* Setup Page */
 .container {
-  padding: 20px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 h1 {
+  font-size: 1.8rem;
   text-align: center;
-  font-size: 6vw;
+  margin-bottom: 20px;
+  color: #111;
 }
 
 label {
-  font-weight: bold;
   display: block;
-  margin: 1em 0 0.3em;
+  margin-top: 14px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-input[type="text"], select, button {
+input[type="text"],
+input[type="color"],
+select {
   width: 100%;
-  font-size: 5vw;
+  height: 44px;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-top: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
 button {
-  background: lime;
-  color: black;
-  border: none;
-  border-radius: 10px;
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  font-size: 1.1rem;
   font-weight: bold;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-.banner-view {
-  height: 100vh;
+.preview-banner {
+  margin-top: 24px;
+  height: 100px;
+  background: #eee;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
+.preview-banner .scroll-text {
+  font-size: 2rem;
+  color: #111;
+  animation: scroll 10s linear infinite;
+  white-space: nowrap;
+}
+
+/* LED Banner Play View */
+.banner-view {
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 2vh;
+}
+
 .scroll-text {
-  font-size: 8vw;
+  display: inline-block;
   white-space: nowrap;
   animation: scroll 10s linear infinite;
+  font-size: 85vh;
+  font-weight: bold;
+  color: #000;
+  padding-left: 100vw;
+  line-height: 1;
 }
 
 @keyframes scroll {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1e1e1e;
+    color: #f0f0f0;
+  }
+
+  .container {
+    background: #2c2c2c;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  }
+
+  h1 {
+    color: #f0f0f0;
+  }
+
+  input,
+  select {
+    background-color: #3a3a3a;
+    color: #fff;
+    border: 1px solid #555;
+  }
+
+  input::placeholder {
+    color: #aaa;
+  }
+
+  button {
+    background: #3498db;
+    color: #fff;
+  }
+
+  .preview-banner {
+    background: #111;
+    border-color: #444;
+  }
+
+  .preview-banner .scroll-text {
+    color: #fff;
+  }
+
+  .banner-view {
+    background: #000;
+    align-items: flex-start;
+    padding-top: 2vh;
+  }
+
+  .scroll-text {
+    color: #fff;
+  }
 }
