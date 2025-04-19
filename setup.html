@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#000000" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LED Banner</title>
@@ -9,23 +14,18 @@
 <body>
   <div class="container">
     <h1>LED Banner</h1>
-
     <label for="text">Your Message:</label>
     <input type="text" id="text" placeholder="e.g. Welcome!" />
-
     <label for="bg">Background Color:</label>
     <input type="color" id="bg" value="#000000" />
-
     <label for="color">Text Color:</label>
     <input type="color" id="color" value="#ffffff" />
-
     <label for="speed">Scroll Speed:</label>
     <select id="speed">
-      <option value="10s">Slow</option>
-      <option value="6s" selected>Normal</option>
-      <option value="3s">Fast</option>
+      <option value="15s">Slow</option>
+      <option value="10s" selected>Normal</option>
+      <option value="5s">Fast</option>
     </select>
-
     <label for="font">Font Style:</label>
     <select id="font">
       <option value="monospace">Monospace</option>
@@ -35,9 +35,7 @@
       <option value="Noto Sans SC">Noto Sans SC</option>
       <option value="Roboto">Roboto</option>
     </select>
-
     <button onclick="startBanner()">Play</button>
-
     <div class="preview-banner">
       <div class="scroll-text" id="previewText">Preview Text</div>
     </div>
