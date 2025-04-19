@@ -1,0 +1,8 @@
+{
+    "workbench.colorCustomizations": {
+    "editor.findMatchBackground": "#ffff8040",              // Yellow for current match
+    "editor.findMatchHighlightBackground": "#ffff8040",     // Soft yellow for other matches
+    "editor.selectionBackground": "#ffff8040",              // Optional: changes normal selection too
+    "editor.selectionHighlightBackground": "#ffff8040"    // Optional: selection highlights
+    }
+}

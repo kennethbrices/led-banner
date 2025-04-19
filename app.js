@@ -9,42 +9,47 @@ function startBanner() {
 }
 
 function updatePreview() {
-  const preview = document.getElementById("previewText");
-  if (preview) {
-    const text = document.getElementById("text").value || "Preview Text";
-    const bg = document.getElementById("bg").value;
-    const color = document.getElementById("color").value;
-    const font = document.getElementById("font").value;
-    const speed = document.getElementById("speed").value;
+  const text = document.getElementById("text").value || "Preview Text";
+  const bg = document.getElementById("bg").value;
+  const color = document.getElementById("color").value;
+  const font = document.getElementById("font").value;
+  const speed = document.getElementById("speed").value;
 
-    preview.textContent = text;
-    preview.style.color = color;
-    preview.style.fontFamily = font;
-    preview.style.animationDuration = speed;
+  const el1 = document.getElementById("previewText1");
+  const el2 = document.getElementById("previewText2");
+  const wrapper = document.querySelector(".preview-banner .scroll-wrapper");
+
+  if (el1 && el2 && wrapper) {
+    el1.textContent = el2.textContent = text;
+    el1.style.color = el2.style.color = color;
+    el1.style.fontFamily = el2.style.fontFamily = font;
+    wrapper.style.animationDuration = speed;
     document.querySelector(".preview-banner").style.backgroundColor = bg;
   }
 }
 
 function initBannerPage() {
-  const textEl = document.getElementById("scrollText");
-  if (textEl) {
-    const params = new URLSearchParams(window.location.search);
-    const text = decodeURIComponent(params.get("text") || "🎉 WELCOME! 🎉");
-    const bg = params.get("bg") || "#000000";
-    const color = params.get("color") || "#ffffff";
-    const speed = params.get("speed") || "10s";
-    const font = decodeURIComponent(params.get("font") || "monospace");
+  const params = new URLSearchParams(window.location.search);
+  const text = decodeURIComponent(params.get("text") || "🎉 WELCOME! 🎉");
+  const bg = params.get("bg") || "#000000";
+  const color = params.get("color") || "#ffffff";
+  const speed = params.get("speed") || "10s";
+  const font = decodeURIComponent(params.get("font") || "monospace");
 
-    textEl.textContent = text;
-    textEl.style.color = color;
-    textEl.style.fontFamily = font;
-    textEl.style.animation = `scroll ${speed} linear infinite`;
+  const el1 = document.getElementById("scrollText1");
+  const el2 = document.getElementById("scrollText2");
+
+  if (el1 && el2) {
+    el1.textContent = el2.textContent = text;
+    el1.style.color = el2.style.color = color;
+    el1.style.fontFamily = el2.style.fontFamily = font;
+    document.documentElement.style.setProperty("--scroll-speed", speed);
     document.querySelector(".banner-view").style.backgroundColor = bg;
   }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  if (document.getElementById("previewText")) {
+  if (document.getElementById("previewText1")) {
     ["text", "bg", "color", "font", "speed"].forEach(function (id) {
       const el = document.getElementById(id);
       if (el) {
@@ -53,21 +58,7 @@ window.addEventListener("DOMContentLoaded", function () {
       }
     });
     updatePreview();
+  } else {
+    initBannerPage();
   }
-
-  initBannerPage();
 });
-
-// Fullscreen on tap
-if (window.location.pathname.includes("led-play.html")) {
-  document.body.addEventListener("click", () => {
-    if (document.fullscreenEnabled && !document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(console.warn);
-    }
-  });
-}
-
-// Register service worker
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js").catch(console.error);
-}

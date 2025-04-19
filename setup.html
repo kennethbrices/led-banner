@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="mobile-web-app-capable" content="yes">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LED Banner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LED Banner Setup</title>
   <link rel="stylesheet" href="style.css" />
-  <script data-goatcounter="https://kennethbrices.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>LED Banner</h1>
+    <h1>LED Banner Setup</h1>
     <label for="text">Your Message:</label>
-    <input type="text" id="text" placeholder="e.g. 🎉 WELCOME! 🎉" />
+    <input type="text" id="text" placeholder="e.g. Welcome!" />
+
     <label for="bg">Background Color:</label>
     <input type="color" id="bg" value="#000000" />
+
     <label for="color">Text Color:</label>
     <input type="color" id="color" value="#ffffff" />
+
     <label for="speed">Scroll Speed:</label>
     <select id="speed">
-      <option value="10s">Slow</option>
-      <option value="5s" selected>Normal</option>
-      <option value="2.5s">Fast</option>
-      <option value="1s">Super Fast</option>
+      <option value="15s">Slow</option>
+      <option value="10s" selected>Normal</option>
+      <option value="5s">Fast</option>
     </select>
+
     <label for="font">Font Style:</label>
     <select id="font">
       <option value="monospace">Monospace</option>
       <option value="sans-serif">Sans-serif</option>
       <option value="Arial">Arial</option>
       <option value="Courier New">Courier New</option>
-      <option value="Noto Sans SC">Noto Sans SC</option>
-      <option value="Roboto">Roboto</option>
     </select>
+
     <button onclick="startBanner()">Play</button>
+
     <div class="preview-banner">
-      <div class="scroll-text" id="previewText">Preview Text</div>
+      <div class="scroll-wrapper">
+        <div class="scroll-text" id="previewText1">Preview Text</div>
+        <div class="scroll-text" id="previewText2">Preview Text</div>
+      </div>
     </div>
   </div>
   <script src="app.js"></script>
