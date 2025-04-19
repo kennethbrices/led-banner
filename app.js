@@ -62,3 +62,17 @@ window.addEventListener("DOMContentLoaded", function () {
     initBannerPage();
   }
 });
+
+// Fullscreen on tap
+if (window.location.pathname.includes("led-play.html")) {
+  document.body.addEventListener("click", () => {
+    if (document.fullscreenEnabled && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(console.warn);
+    }
+  });
+}
+
+// Register service worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(console.error);
+}
