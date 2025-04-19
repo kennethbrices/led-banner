@@ -9,6 +9,9 @@ html, body {
   box-sizing: border-box;
   overflow: auto;
 }
+html, body .led-play {
+  overflow: hidden;
+}
 
 /* Setup Page */
 .container {
