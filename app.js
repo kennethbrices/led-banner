@@ -59,11 +59,13 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 // Fullscreen on tap
-document.body.addEventListener("click", () => {
-  if (document.fullscreenEnabled && !document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(console.warn);
-  }
-});
+if (window.location.pathname.includes("led-play.html")) {
+  document.body.addEventListener("click", () => {
+    if (document.fullscreenEnabled && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(console.warn);
+    }
+  });
+}
 
 // Register service worker
 if ("serviceWorker" in navigator) {
