@@ -29,7 +29,7 @@ function initBannerPage() {
   const textEl = document.getElementById("scrollText");
   if (textEl) {
     const params = new URLSearchParams(window.location.search);
-    const text = decodeURIComponent(params.get("text") || "Welcome!");
+    const text = decodeURIComponent(params.get("text") || "🎉 WELCOME! 🎉");
     const bg = params.get("bg") || "#000000";
     const color = params.get("color") || "#ffffff";
     const speed = params.get("speed") || "10s";
